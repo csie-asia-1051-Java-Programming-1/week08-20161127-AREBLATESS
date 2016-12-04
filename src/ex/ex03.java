@@ -11,22 +11,45 @@ public class ex03 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner scn=new Scanner(System.in);
+		System.out.print("輸入幾乘幾的矩陣(1):");
 		int n1=scn.nextInt();
 		int m1=scn.nextInt();
-		int n2=scn.nextInt();
-		int m2=scn.nextInt();
-		int data[][]=new int[n1][m1];
-		int data2[][]=new int[n2][m2];
-		int data3[][]=new int[n1][m2];
+		int data1[][]=new int[n1][m1];
+		
 		for(int i=0;i<n1;i++){
 			for(int j=0;j<m1;j++){
-				data[i][j]=scn.nextInt();
+				data1[i][j]=scn.nextInt();
 			}
 		}
+		System.out.print("輸入幾乘幾的矩陣(2):");
+		int n2=scn.nextInt();
+		int m2=scn.nextInt();
+		int data2[][]=new int[n2][m2];
+
+		
 		for(int i=0;i<n2;i++){
 			for(int j=0;j<m2;j++){
-				data[i][j]=scn.nextInt();
+				data2[i][j]=scn.nextInt();
 			}
+		}
+		if(n1!=m2){
+			System.out.print("無法出現方陣");
+		}else{
+		int data[][]=new int[n1][m2];
+				for(int i=0;i<n1;i++){
+					for(int j=0;j<m2;j++){
+						for(int k=0;k<m1;k++){
+							data[i][j]=data[i][j]+data1[i][k]*data2[k][j];
+						}
+					}
+				}
+				System.out.println("結果");
+				for(int i=0;i<n1;i++){
+					for(int j=0;j<m2;j++){
+						System.out.print(data[i][j]+"\t");
+					}
+					System.out.println();
+				}
 		}
 	}
 
